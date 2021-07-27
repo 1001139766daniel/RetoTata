@@ -1,51 +1,47 @@
-package punto_2;
+package Forma_2;
 import java.util.Scanner;
+
+
 public class main {
-	
-	static String Nombre;
-	static String Apellido;
-	static String Ciudad;
-	static long Celular;
-	static double ingreso;
-	
 
 	public static void main(String[] args) {
-		
 		Scanner entrada = new Scanner(System.in);
-		System.out.println("Ingrese el nombre del empleado: ");
-		Nombre = entrada.nextLine();
-		System.out.println("Ingrese su apellido: ");
-		Apellido = entrada.nextLine();
-		System.out.println("Ingrese su ciudad: ");
-		Ciudad = entrada.nextLine();
-		System.out.println("Ingrese su numero celular: ");
-		Celular = entrada.nextLong();
-		System.out.println("Ingrese su ingreso mensual: ");
-		ingreso = entrada.nextDouble();
+		double G, Abril,Mayo,Junio;
+		long Total;
+		String Nombre, Apellido;
 		
-		double impt1 = ingreso *2;
-		double impt2 = ingreso *0.50;
 		
-		impuestos imp1 = new impuestos(Nombre,Apellido,Ciudad,Celular,ingreso);
-		
-		System.out.println("************************************* Plataforma de Impuestos *********************************************************\n");
-		System.out.println("Nombre del empleado: "+Nombre+" "+Apellido);
-		System.out.println("Ciudad de residencia del empleado: "+Ciudad);
-		System.out.println("Numero de Celular del empleado: "+Celular);
-		
-	    if (1500000<ingreso){   
-			System.out.println("Te informo que debes pagar de impuestos: "+impt1);
-		}
-	    
-		else{
-			System.out.println("Te informo que debes pagar de impuestos:"+impt2);
-		}
-	    
-		System.out.println("Ingreso trimestral: "+imp1.ing_trimestra());
-		System.out.println("Ingreso semestral: "+imp1.ing_semestral());
-		System.out.println("Ingreso anual: "+imp1.ing_anual()+"\n");
-		System.out.println("***********************************************************************************************************************\n");
-		
-        entrada.close();
+		 System.out.println("Ingrese su nombre: ");
+	        Nombre = entrada.nextLine();
+	        
+	        System.out.println("Ingrese su apellido: ");
+	        Apellido = entrada.nextLine();
+	
+
+	        System.out.println("DIGITE las ganancias \n" );
+	        G = entrada.nextDouble();
+	        
+	      
+	       Ganancias prueba = new Ganancias(G);
+	       Abril = prueba.Marzo()*0.80;
+	       Mayo = (prueba.Febrero()+prueba.Marzo())/3;
+	       Junio =(prueba.Enero()+prueba.Febrero()+prueba.Marzo()+Abril+Mayo)/5;
+	       Total = (long) (prueba.Enero()+prueba.Febrero()+prueba.Marzo()+Abril+Mayo+Junio);
+	       
+	       System.out.println("\n El administrador es "+Nombre+" "+Apellido+"\n");
+	       
+	       System.out.println("************************************* Ganancias del mes *********************************************************\n");
+           System.out.println("Mes de enero la ganancias fue: "+prueba.Enero());
+           System.out.println("Mes de febrero la ganancias fue: "+prueba.Febrero());
+           System.out.println("Mes de marzo la ganancias fue: "+prueba.Marzo());
+           System.out.println("Mes de abril la ganancia fue: "+Abril );
+           System.out.println("Mes de Mayo la ganancia fue: "+Mayo);
+           System.out.println("Mes de junio la ganancia fue: "+Junio);
+           System.out.println("El total  la ganancia en el primer semestre del año fue: "+Total+"\n");
+           System.out.println("*****************************************************************************************************************");
+
+           entrada.close();
+
 	}
+
 }
